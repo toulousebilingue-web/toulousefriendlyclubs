@@ -1,0 +1,113 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 20 25% 97%; /* #F7F1EF - Off-white warm */
+    --foreground: 12 15% 15%;
+    --card: 0 0% 100%;
+    --card-foreground: 12 15% 15%;
+    --popover: 0 0% 100%;
+    --popover-foreground: 12 15% 15%;
+    --primary: 12 50% 49%; /* #BA573E - Terracotta */
+    --primary-foreground: 20 25% 98%;
+    --secondary: 12 20% 90%;
+    --secondary-foreground: 12 50% 30%;
+    --muted: 12 10% 93%;
+    --muted-foreground: 12 15% 45%;
+    --accent: 340 78% 65%; /* #EB608F - Magenta-pink */
+    --accent-foreground: 340 78% 15%;
+    --destructive: 0 84.2% 60.2%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 12 15% 88%;
+    --input: 12 15% 88%;
+    --ring: 12 50% 49%;
+    --radius: 0.75rem;
+  }
+
+  .dark {
+    --background: 12 15% 10%;
+    --foreground: 20 25% 98%;
+    --card: 12 15% 12%;
+    --card-foreground: 20 25% 98%;
+    --popover: 12 15% 12%;
+    --popover-foreground: 20 25% 98%;
+    --primary: 12 50% 55%;
+    --primary-foreground: 12 15% 10%;
+    --secondary: 12 15% 20%;
+    --secondary-foreground: 20 25% 98%;
+    --muted: 12 15% 20%;
+    --muted-foreground: 12 15% 70%;
+    --accent: 340 78% 65%;
+    --accent-foreground: 340 78% 95%;
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 0 0% 98%;
+    --border: 12 15% 25%;
+    --input: 12 15% 25%;
+    --ring: 12 50% 55%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+  body {
+    @apply bg-background text-foreground font-body;
+  }
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-headline tracking-tight;
+  }
+}
+
+/* Google Translate Customization for Transparency */
+.goog-te-banner-frame.skiptranslate {
+  display: none !important;
+}
+
+body {
+  top: 0px !important;
+}
+
+#google_translate_element {
+  background: transparent !important;
+}
+
+.goog-te-gadget-simple {
+  background-color: transparent !important;
+  border: none !important;
+  padding: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+  font-family: inherit !important;
+}
+
+.goog-te-gadget-simple span {
+  color: hsl(var(--muted-foreground)) !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+}
+
+.goog-te-gadget-simple img {
+  display: none !important;
+}
+
+.goog-te-menu-value {
+  margin: 0 !important;
+  display: flex !important;
+  align-items: center !important;
+}
+
+.goog-te-menu-value span:nth-child(3) {
+  display: none !important;
+}
+
+.goog-te-menu-value span:nth-child(5) {
+  color: hsl(var(--primary)) !important;
+  margin-left: 4px !important;
+}
+
+.goog-te-gadget-icon {
+  display: none !important;
+}

@@ -1,0 +1,34 @@
+{
+  "placeholderImages": [
+    {
+      "id": "toulouse-capitole",
+      "description": "Place du Capitole",
+      "imageUrl": "https://picsum.photos/seed/toulouse1/1200/600",
+      "imageHint": "Toulouse Capitole architecture"
+    },
+    {
+      "id": "toulouse-garonne",
+      "description": "Le Pont Neuf",
+      "imageUrl": "https://picsum.photos/seed/toulouse2/1200/600",
+      "imageHint": "Toulouse river Garonne"
+    },
+    {
+      "id": "group-hiking",
+      "description": "Randonnée Pyrénées",
+      "imageUrl": "https://picsum.photos/seed/hiking/800/400",
+      "imageHint": "hiking mountains"
+    },
+    {
+      "id": "group-tech",
+      "description": "Tech & Coding",
+      "imageUrl": "https://picsum.photos/seed/tech/800/400",
+      "imageHint": "technology community"
+    },
+    {
+      "id": "group-food",
+      "description": "Gastronomie Toulousaine",
+      "imageUrl": "https://picsum.photos/seed/food/800/400",
+      "imageHint": "gastronomy dining"
+    }
+  ]
+}

@@ -1,0 +1,126 @@
+
+{
+  "entities": {
+    "User": {
+      "title": "User",
+      "description": "Informations de profil de l'utilisateur",
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string"
+        },
+        "email": {
+          "type": "string",
+          "format": "email"
+        },
+        "photoURL": {
+          "type": "string"
+        },
+        "bio": {
+          "type": "string"
+        },
+        "role": {
+          "type": "string",
+          "enum": ["member", "moderator", "admin", "super_admin", "super_moderator"],
+          "description": "Rôle global dans l'application"
+        },
+        "isBanned": {
+          "type": "boolean",
+          "default": false
+        },
+        "messagePrivacy": {
+          "type": "string",
+          "enum": ["everyone", "friends", "none"]
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time"
+        }
+      },
+      "required": ["name", "email"]
+    },
+    "Group": {
+      "title": "Group",
+      "description": "Un club ou une communauté",
+      "type": "object",
+      "properties": {
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "photoURL": { "type": "string" },
+        "creatorId": { "type": "string" },
+        "joinPolicy": {
+          "type": "string",
+          "enum": ["open", "request"],
+          "description": "Adhésion libre ou sur validation"
+        },
+        "visibility": {
+          "type": "string",
+          "enum": ["public", "private"],
+          "description": "Public (visible de tous) ou Privé (caché aux non-membres)"
+        },
+        "memberCount": { "type": "number" },
+        "createdAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "GroupMember": {
+      "title": "Group Member",
+      "description": "Relation entre un utilisateur et un groupe",
+      "type": "object",
+      "properties": {
+        "userId": { "type": "string" },
+        "groupId": { "type": "string" },
+        "role": {
+          "type": "string",
+          "enum": ["member", "moderator", "admin"]
+        },
+        "status": {
+          "type": "string",
+          "enum": ["pending", "accepted", "banned"]
+        },
+        "joinedAt": { "type": "string", "format": "date-time" }
+      }
+    },
+    "Event": {
+      "title": "Event",
+      "description": "Une activité organisée dans un groupe",
+      "type": "object",
+      "properties": {
+        "groupId": { "type": "string" },
+        "title": { "type": "string" },
+        "description": { "type": "string" },
+        "date": { "type": "string", "format": "date" },
+        "time": { "type": "string" },
+        "location": { "type": "string" },
+        "visibility": {
+          "type": "string",
+          "enum": ["global", "group_only"],
+          "description": "Visible partout ou seulement pour les membres du groupe"
+        },
+        "maxParticipants": { "type": "number" },
+        "attendeeCount": { "type": "number" },
+        "organizerId": { "type": "string" }
+      }
+    }
+  },
+  "auth": {
+    "providers": ["google.com", "password"]
+  },
+  "firestore": {
+    "/users/{userId}": {
+      "schema": "User",
+      "description": "Profils utilisateurs"
+    },
+    "/groups/{groupId}": {
+      "schema": "Group",
+      "description": "Clubs toulousains"
+    },
+    "/groups/{groupId}/members/{memberId}": {
+      "schema": "GroupMember",
+      "description": "Membres d'un groupe spécifique"
+    },
+    "/events/{eventId}": {
+      "schema": "Event",
+      "description": "Événements globaux"
+    }
+  }
+}
